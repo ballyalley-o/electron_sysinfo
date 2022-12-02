@@ -2,14 +2,15 @@
   "name": "electron-sysinfo",
   "version": "1.0.0",
   "description": "System Info App",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "electron ."
+    "start": "electron ."
   },
   "author": "Bally Lomibao",
   "license": "MIT",
   "dependencies": {
-    "electron": "^22.0.0"
+    "electron": "^22.0.0",
+    "electronmon": "^2.0.2"
   }
 }
