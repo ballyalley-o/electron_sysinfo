@@ -1,0 +1,15 @@
+$file = "c:\temp\a.html"
+$ipconfig=ipconfig /all |%{"$_<br/>"}
+$body=@"
+<html>
+    <head>
+    <title>Network Report</title>
+    </head>
+<body>
+    <h1>IPConfig /All</h1>
+    <pre>$ipconfig</pre>
+</body>
+</html>
+"@
+$body | Out-File $file
+. $file

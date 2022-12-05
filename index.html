@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sys Info</title>
-    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/slate/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
@@ -17,7 +17,7 @@
     console.log(process)
     let output =`
      <p class="header"> Computer Name: ${process.env.COMPUTERNAME}</p>
-    <h2 class="page-header">App version Data</h2>
+    <h4 class="page-header p-1">App version Data</h4>
     <ul class="list-group">
         <li class="list-group-item"> Node: ${process.versions.node}</li>
         <li class="list-group-item"> Chrome: ${process.versions.chrome}</li>
@@ -25,14 +25,32 @@
     </ul>
 
 
-    <h2 class="page-header">System Specifications</h2>
+    <h4 class="page-header p-1">System Specifications</h4>
     <ul class="list-group">
         <li class="list-group-item"> System Architecture: ${process.arch}</li>
         <li class="list-group-item"> Processor: ${process.env.PROCESSOR_IDENTIFIER}</li>
-        <li class="list-group-item"> Printer: ${process.env.PRINTER}</li>
-    </ul>`
+    </ul>
 
-    document.getElementById('output').innerHTML = output
+     <h4 class="page-header p-1">System Memory</h4>
+    <ul class="list-group">
+        <li class="list-group-item">Total: ${process.getSystemMemoryInfo().total}</li>
+        <li class="list-group-item"> Free: ${process.getSystemMemoryInfo().total}</li>
+        <li class="list-group-item"> Swap Total: ${process.getSystemMemoryInfo().swapTotal}</li>
+        <li class="list-group-item"> Swap Free: ${process.getSystemMemoryInfo().swapFree}</li>
+    </ul>
+
+      <h4 class="page-header p-1">${process.env.COMPUTERNAME} Info</h4>
+    <ul class="list-group">
+        <li class="list-group-item">Username: ${process.env.USERNAME}</li>
+        <li class="list-group-item"> Home: ${process.env.HOME}</li>
+        <li class="list-group-item"> System Drive: ${process.env.SYSTEMDRIVE}</li>
+        <li class="list-group-item"> System Root: ${process.env.SYSTEMROOT}</li>
+    </ul>
+
+    `
+
+
+document.getElementById('output').innerHTML = output
 </script>
 <script src="./render/renderer.js"></script>
 
